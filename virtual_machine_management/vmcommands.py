@@ -10,4 +10,4 @@ def start_vm(az_cli):
     az_cli.invoke(['vm', 'start', '--name', 'vm_name', '--resource_group', 'mygroup'])
 
 def stop_vm(az_cli):
-    az_cli.invoke(['vm', 'start', '--name', 'vm_name', '--resource_group', 'mygroup'])
+    az_cli.invoke(['vm', 'stop', '--name', 'vm_name', '--resource_group', 'mygroup'])
