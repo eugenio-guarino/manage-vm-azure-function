@@ -13,12 +13,5 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             pass
         else:
             command = req_body.get('command')
-    
-    az_cli = vmcommands.login()
 
-    if command == 'start':
-        vmcommands.start_vm(az_cli)
-        logging.info("This HTTP triggered function executed successfully", status_code=200)
-    elif command == 'stop':
-        vmcommands.stop_vm(az_cli)
-        logging.info("This HTTP triggered function executed successfully", status_code=200)
+    getattr(vmcommands,'command')
