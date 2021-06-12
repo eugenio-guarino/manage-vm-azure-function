@@ -1,4 +1,4 @@
-from azure.cli.core import azlogging, get_default_cli
+from azure.cli.core import get_default_cli
 
 def login():
     az_cli = get_default_cli()
