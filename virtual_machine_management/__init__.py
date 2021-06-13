@@ -10,11 +10,11 @@ def login():
 
 def start_vm():
     az_cli = login()
-    az_cli.invoke(['vm', 'start', '-g', '', '-n',  ''])
+    az_cli.invoke(['vm', 'start', '-g', 'minecraft-server', '-n',  ''])
 
 def stop_vm():
     az_cli = login()
-    az_cli.invoke(['vm', 'deallocate',  '-g', '', '-n',  ''])
+    az_cli.invoke(['vm', 'deallocate',  '-g', 'minecraft-server', '-n',  ''])
 
 def get_usage_information():
     az_cli = login()
@@ -26,13 +26,6 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
     command = req.params.get('command')
-    if not command:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            command = req_body.get('command')
 
     if command == 'start':
         start_vm()
